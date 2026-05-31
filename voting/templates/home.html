@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Voting System</title>
+</head>
+<body>
+
+    <h1>Online Voting System</h1>
+
+    <a href="/">Home</a> |
+    <a href="/results/">View Results</a>
+
+    <hr>
+
+    {% for election in elections %}
+        <h2>{{ election.name }}</h2>
+
+        <ul>
+        {% for candidate in candidates %}
+            {% if candidate.election == election %}
+                <li>
+                    {{ candidate.name }}
+                    - Votes: {{ candidate.vote_set.count }}
+                    <a href="/vote/{{ candidate.id }}/">Vote</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+
+    {% endfor %}
+
+</body>
+</html>

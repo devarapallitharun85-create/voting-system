@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Election Results</title>
+</head>
+<body>
+
+    <h1>Election Results</h1>
+
+    <a href="/">Home</a>
+
+    <hr>
+
+    <ul>
+    {% for candidate in candidates %}
+        <li>
+            {{ candidate.name }} - Votes: {{ candidate.vote_set.count }}
+        </li>
+    {% endfor %}
+    </ul>
+
+</body>
+</html>
