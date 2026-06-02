@@ -1,7 +1,9 @@
 services:
   - type: web
-    name: voting-project
+    name: voting-system
     env: python
+    region: oregon
+    plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn voting_project.wsgi:application --bind 0.0.0.0:10000
     runtime: python3.11
